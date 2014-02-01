@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : log4j.xml.xml
+    Created on : May 7, 2009, 11:47 PM
+    Author     : ori7
+    Description:
+-->
+
+<!DOCTYPE log4j:configuration SYSTEM "../../../../../Common/XMLSchema/log4j/log4j.dtd" >
+<log4j:configuration>
+    
+
+ <appender name="console" class="org.apache.log4j.ConsoleAppender">
+     <param name="threshold" value="debug"/>
+   <layout class="org.apache.log4j.PatternLayout">
+     <param name="ConversionPattern" value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n"/>
+	</layout>
+	
+     </appender>
+    
+    
+    <appender name="file"
+		class="org.apache.log4j.RollingFileAppender">
+        <param name="maxFileSize" value="5MB" />
+        <param name="maxBackupIndex" value="3" />
+        <param name="File" value="jetwaf.log" />
+        <param name="threshold" value="info"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+				value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n" />
+        </layout>
+    </appender>
+	
+		 
+    <root>
+        <priority value="debug"></priority>
+        <appender-ref ref="console"/>
+        <!--<appender-ref ref="socket" />-->
+        <!-- appender-ref ref="mail"/ -->
+        <!-- appender-ref ref="file"/ -->        
+
+    </root>
+</log4j:configuration>
+
